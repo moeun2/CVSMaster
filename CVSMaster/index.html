@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
+  <title>편의점 마스터</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="checkCategory.js"></script>
+  <script type="text/javascript"
+  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a7f8fa2072ecde58efcc0e8eb4233fb&libraries=services"></script>
+    <!-- 헤더 -->
+      <style>
+        /* 모바일 - 767px 이하*/
+          header {
+            height: 125px;
+            background: #fff;
+            position: relative;
+          }
+          nav {
+            position: relative;
+            margin-left:10%;
+            margin-right:10%;
+            height:30px;
+          }
+          main {
+            position: relative;
+            margin-left:10%;
+            margin-right:10%;
+          }
+          section {
+            position: relative;
+            width: 100%;
+            padding: 3px 3% 10px 5%;
+          }
+          footer {
+             position: relative;
+             background: #fff;
+             margin-left:10%;
+             margin-right:10%;
+             height:80px;
+             clear: both;
+          }
+          li {
+            float: right;
+           }
+          li a {
+    			display: block;
+    			background-color: #fbceb1;
+    			color: #7831a3;
+    			padding: 8px;
+    			text-decoration: none;
+    			text-align: center;
+    			font-weight: bold;
+      		}
+      		li a.current {
+      			background-color: #FF6347;
+      			color: white;
+      		}
+      		li a:hover:not(.current) {
+      			background-color: #ffa063;
+      			color: white;
+      		}
+          .logo {
+              position: absolute;
+              width: 385px; height: 112px;
+              left: 50%; margin-left: -212px;
+              background: url('image/project_logo.png');
+              background-repeat: no-repeat;
+          }
+
+          .font_ba {
+            font-size: 13px;
+            float: right;
+            font-family: 'Gothic A1', sans-serif;
+          }
+          .font_footer {
+            font-size: small;
+            float: left;
+          }
+
+          #nav{
+            background-color: #fbceb1;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height:30px;
+            overflow: hidden;
+          }
+          #category {
+             -moz-box-sizing: border-box;
+             -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+             background: #fff;
+             width: 100%;
+             height: 130px;
+             float: left;
+             margin: 0;
+          }
+          #map {
+             -moz-box-sizing: border-box;
+             -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+             width: 100%;
+             height: 500px;
+             float: left;
+             margin: 0;
+            border: 1px dotted #ccc;
+          }
+          #btnCurrentLoction {
+              position: absolute;
+              top: 20px;
+              left: 20px;        
+              z-index: 10;
+              cursor: pointer;        
+              background: url(image/currentLocationButton.png);
+              display:inline-block;
+              width: 42px; 
+              height: 42px;
+          }
+          /*MOBILE 카테고리 라벨 이미지*/
+          input[id="ATM"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/ATM00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="ATM"]:checked + label {
+            background: url('image/ATM11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="ATM"] {
+            display: none;
+          }
+
+          input[id="deliver"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/deliver00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="deliver"]:checked + label {
+            background: url('image/deliver11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="deliver"] {
+            display: none;
+          }
+
+          input[id="bakery"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/bakery00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="bakery"]:checked + label {
+            background: url('image/bakery11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="bakery"] {
+            display: none;
+          }
+
+          input[id="friedchicken"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/friedchicken00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="friedchicken"]:checked + label {
+            background: url('image/friedchicken11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="friedchicken"] {
+            display: none;
+          }
+
+          input[id="cafe"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/cafe00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="cafe"]:checked + label {
+            background: url('image/cafe11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="cafe"] {
+            display: none;
+          }
+
+          input[id="lotto"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/lotto00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="lotto"]:checked + label {
+            background: url('image/lotto11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="lotto"] {
+            display: none;
+          }
+
+          input[id="toto"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/toto00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="toto"]:checked + label {
+            background: url('image/toto11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="toto"] {
+            display: none;
+          }
+
+          input[id="medicine"]+label{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            background: url('image/medicine00.png');
+            background-repeat: no-repeat;
+          }
+          input[id="medicine"]:checked + label {
+            background: url('image/medicine11.png');
+            background-repeat: no-repeat;
+          }
+          input[id="medicine"] {
+            display: none;
+          }
+
+      /* PC - 992px 이상 */
+      @media screen and (min-width:992px) {
+
+        .font_ba{
+          font-size: 15px;
+        }
+        .font_footer {
+          font-size: small;
+          float:left;
+        }
+
+        #category {
+           -moz-box-sizing: border-box;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           width: 30%;
+           height: 500px;
+           float: left;
+           margin: 0;
+        }
+       #map {
+           -moz-box-sizing: border-box;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           width: 70%;
+           height: 500px;
+           float: left;
+           margin: 0;
+           border: 1px dotted #ccc;
+        }
+
+        /*PC카테고리 라벨 이미지*/
+        input[id="ATM"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/ATM0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="ATM"]:checked + label {
+          background: url('image/ATM1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="ATM"] {
+          display: none;
+        }
+
+        input[id="deliver"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/deliver0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="deliver"]:checked + label {
+          background: url('image/deliver1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="deliver"] {
+          display: none;
+        }
+
+        input[id="bakery"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/bakery0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="bakery"]:checked + label {
+          background: url('image/bakery1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="bakery"] {
+          display: none;
+        }
+
+        input[id="friedchicken"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/friedchicken0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="friedchicken"]:checked + label {
+          background: url('image/friedchicken1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="friedchicken"] {
+          display: none;
+        }
+
+        input[id="cafe"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/cafe0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="cafe"]:checked + label {
+          background: url('image/cafe1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="cafe"] {
+          display: none;
+        }
+
+        input[id="lotto"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/lotto0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="lotto"]:checked + label {
+          background: url('image/lotto1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="lotto"] {
+          display: none;
+        }
+
+        input[id="toto"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/toto0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="toto"]:checked + label {
+          background: url('image/toto1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="toto"] {
+          display: none;
+        }
+
+        input[id="medicine"]+label{
+          display: inline-block;
+          width: 80px;
+          height:80px;
+          background: url('image/medicine0.png');
+          background-repeat: no-repeat;
+        }
+        input[id="medicine"]:checked + label {
+          background: url('image/medicine1.png');
+          background-repeat: no-repeat;
+        }
+        input[id="medicine"] {
+          display: none;
+        }
+
+      }
+      </style>
+
+ <script>
+  
+</script>
+</head>
+
+<body>
+  <script id="fetch"></script>
+  <div id="container">
+
+    <header id = "header">
+          <a class = "logo" onclick="location.href='index.html'" ></a>
+    </header>
+    <nav>
+          <ul id="nav">
+              <li><a class="font_ba" onclick="location.href='CU_recipe.html'">편의점 음식 레시피</a></li>
+          		<li><a class="font_ba" href="/CU_service.html">편의점 서비스 사용 메뉴얼</a></li>
+    	    </ul>
+    </nav>
+    <main id="main">
+      <section id="category">
+                <div class="page-title">
+                  <p>*원하시는 서비스를 선택하세요</p>
+                </div>
+                <input type="checkbox" id="ATM">
+                <label for="ATM"></label>
+                <input type="checkbox"   id="deliver">
+                <label for="deliver"></label>
+                <input type="checkbox"  id="bakery">
+                <label for="bakery"></label>
+                <input type="checkbox" id="friedchicken">
+                <label for="friedchicken"></label>
+                <input type="checkbox" id="cafe">
+                <label for="cafe"></label>
+                <input type="checkbox" id="lotto">
+                <label for="lotto"></label>
+                <input type="checkbox"  id="toto">
+                <label for="toto"></label>
+                <input type="checkbox"  id="medicine">
+                <label for="medicine"></label>
+      </section>
+
+      <section id="map">
+        <div>
+          <span id="btnCurrentLoction" style="display:inline-block; width: 42px; height: 42;" onclick="moveCurrentLocation()"></span>
+        </div>
+                <div class="page-title">
+                    <p>search result</p>
+                </div>
+
+      </section>
+    </main>
+    
+    <script>
+      var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+      var options = { //지도를 생성할 때 필요한 기본 옵션
+        center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+        level: 3 //지도의 레벨(확대, 축소 정도)
+      };
+
+      var map = new kakao.maps.Map(container, options);
+      var geocoder = new kakao.maps.services.Geocoder();
+      /*
+          지도를 생성하고 현재 위치로 이동시켜주는 코드
+      */
+      if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+          var lat = position.coords.latitude, // 위도
+              lon = position.coords.longitude; // 경도
+
+          var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+            message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+
+          // 마커와 인포윈도우를 표시합니다
+          displayMarker(locPosition, message);
+          //searchCurrentAdress();
+
+        });
+      } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+        var locPosition = new kakao.maps.LatLng(37.54907975225209, 127.07491438423236),
+          message = 'geolocation을 사용할수 없어요..'
+
+        displayMarker(locPosition, message);
+      }
+
+      // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+      function displayMarker(locPosition, message) {
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+          map: map,
+          position: locPosition
+        });
+
+        var iwContent = message, // 인포윈도우에 표시할 내용
+          iwRemoveable = true;
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+          content: iwContent,
+          removable: iwRemoveable
+        });
+
+        // 인포윈도우를 마커위에 표시합니다 
+        infowindow.open(map, marker);
+
+        // 지도 중심좌표를 접속위치로 변경합니다
+        map.setCenter(locPosition);
+      }
+
+
+      moveCurrentLocation = function () {
+
+        console.log("asd1f");
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+          var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+
+          var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다         
+
+          // 마커와 인포윈도우를 표시합니다
+          displayMarker(locPosition, '<div style="padding:5px;">현재 위치</div>');
+          //map.setCenter(locPosition);        
+        })
+      }
+    </script>
+    <script src="checkCategory.js"></script>
+      <div>
+        <button id="btn">asdf</button>
+      </div>
+    <footer id="footer">
+
+      <p class="font_footer">
+05006 서울특별시 광진구 능동로 209 (군자동) 세종대학교 TEL02-3408-3114 E-MAILwebmaster@sejong.ac.kr</p>
+
+    </footer>
+
+
+  </div>
+  
+</body>
+</html>

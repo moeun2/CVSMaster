@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
+  <title>편의점 마스터</title>
+
+  <!-- 헤더 -->
+    <style>
+      /* 모바일 - 767px 이하*/
+        header {
+          height: 125px;
+          background: #fff;
+          position: relative;
+        }
+        main {
+          position: relative;
+          margin-left:10%;
+          margin-right:10%;
+        }
+        section {
+          position: relative;
+          width: 100%;
+          padding: 3px 3% 10px 0%;
+        }
+        footer {
+           position: relative;
+           background: #fff;
+           margin-left:10%;
+           margin-right:10%;
+           height:80px;
+           clear: both;
+        }
+        h2{
+          color: #000;
+          width: 400px;
+          margin: 0 auto;
+          padding: 80px 3% 10px 5%;
+          text-align:center;
+        }
+        .font_ba {
+          font-size: 13px;
+          float: right;
+          font-family: 'Gothic A1', sans-serif;
+        }
+        .font_footer{
+          font-size: small;
+          float: left;
+        }
+        .font_list {
+          font-size: small;
+          font-family: 'Gothic A1', sans-serif;
+        }
+        .font_title {
+          font-family: 'Jua', sans-serif;
+          font-size: 18px;
+        }
+        .font_sub {
+          font-family: 'Gothic A1', sans-serif;
+          font-weight: bold;
+        }
+        .font_sub_s {
+          font-family: 'Jua', sans-serif;
+        }
+        .font_main_title {
+          font-family: 'Jua', sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .font_main_pagetitle {
+          font-family: 'Gothic A1', sans-serif;
+          font-size: 30px;
+          font-weight: bold;
+        }
+
+        .img_size_del{
+          width: 400px;
+          height: 300px;
+          border: 1px solid black;
+        }
+        .logo {
+            position: absolute;
+            width: 385px; height: 112px;
+            left: 50%; margin-left: -212px;
+            background: url('image/project_logo.png');
+            background-repeat: no-repeat;
+        }
+        .tag_size {
+            width: 100px;
+            height: 36px;
+          }
+          .page {
+              width: 95%;
+              margin-top: 10px;
+              padding: 15px 15px 15px 15px;
+              font-size: 11px;
+              background: #f8efea;
+              box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+          }
+          .page .img_size{
+            width: 100%;
+            height: 300px;
+            border: 1px solid black;
+          }
+        #nav{
+          background-color: #fbceb1;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          height:30px;
+          overflow: hidden;
+          position: relative;
+          margin-left:10%;
+          margin-right:10%;
+          height:30px;
+        }
+        #nav li {
+          float: right;
+         }
+        #nav li a {
+        display: block;
+        background-color: #fbceb1;
+        color: #7831a3;
+        padding: 8px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        }
+        #nav li a.current {
+             background-color: #FF6347;
+             color: white;
+        }
+        #nav li a:hover:not(.current) {
+            background-color: #ffa063;
+            color: white;
+         }
+
+         #pagetitle{
+           background-color: #fbceb1;
+           list-style-type: none;
+           margin: 0;
+           padding: 0;
+           width: 100%;
+           overflow: hidden;
+           position: relative;
+           background: url( 'https://lh3.googleusercontent.com/proxy/hmIM_2nb6gCrjtgyjCIc_8aoqR5cf4FFQC6GyIlIsyUcvhYEXCOhYn_95BYxGfrEX7ICfQcFElrAzcNJvOmMb1_BEzBjfCZ84PK2AVh0ydn8QPDDpfWKxAtegVnjnsB3aEuDkm_rmhJxk4WybhPYHrpe7J62LnoTvcf-iyn7sTkfrvDb4yBoQ9ZeWNdBhtnFJxoOEMCxkw');
+           background-repeat: repeat;
+           height:200px;
+         }
+
+         #storename{
+           background-color: #fff;
+           list-style-type: none;
+           margin: 0;
+           padding: 0;
+           overflow: hidden;
+           position: relative;
+           margin-left:0%;
+           margin-right:10%;
+           width:100%;
+           height:100px;
+         }
+         #storename li {
+           float: left;
+          }
+         #storename li a {
+         display: block;
+         color: #000;
+         padding: 10px;
+         border: 2px solid #fad6b6;
+         border-radius: 15%;
+         }
+         #storename li a.current {
+           background-color: #ffe9d6;
+           color: #fff;
+         }
+         #storename   li a:hover:not(.current) {
+           background-color: #fff8f2;
+           color: white;
+         }
+
+         #ser_select {
+                background-color: #fff;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                height:100px;
+                overflow: hidden;
+                position: relative;
+                margin-left:0%;
+                margin-right:0%;
+              }
+              #ser_select li {
+                float: left;
+               }
+              #ser_select li a {
+                display: block;
+                background-color: #fff;
+                color: #000;
+                padding: 8px;
+              }
+              #ser_select li a.current {
+                background-color: #FFF;
+                color: white;
+              }
+              #ser_select li a:hover:not(.current) {
+                background-color: #F9B355;
+                color: white;
+              }
+
+
+    /* PC - 992px 이상 */
+    @media screen and (min-width:992px) {
+      #recipe {
+         -moz-box-sizing: border-box;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         width: 50%;
+         height: 700px;
+         float: left;
+         margin: 0;
+      }
+      .font_ba{
+        font-size: 15px;
+      }
+      .font_footer{
+        font-size: small;
+        float: left;
+      }
+      .font_list{
+        font-size: small;
+        font-family: 'Gothic A1', sans-serif;
+      }
+      .font_title {
+        font-size: 20px;
+      }
+      .font_sub {
+        font-weight: bold;
+      }
+      .font_sub_s {
+      }
+      .font_main_title {
+        font-size: 23px;
+        font-weight: bold;
+      }
+
+      .page .img_size{
+        width: 100%;
+        height: 400px;
+        border: 1px solid black;
+      }
+      .img_size_del{
+        width: 700px;
+        height: 500px;
+        border: 1px solid black;
+      }
+      .tag_size {
+          width: 130px;
+          height: 47px;
+        }
+        .page {
+            width: 95%;
+            height: 600px;
+            margin-top: 10px;
+            padding: 15px 20px 15px 20px;
+            font-size: 11px;
+            background: #f8efea;
+            box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+        }
+    }
+    </style>
+
+
+</head>
+
+<body>
+
+  <div id="container">
+
+    <header id = "header">
+          <a class = "logo"  onclick="location.href='index.html'" ></a>
+    </header>
+    <nav>
+          <ul id="nav">
+              <li><a class="font_ba" href="/CU_recipe.html">편의점 음식 레시피</a></li>
+                <li><a class="font_ba" href="/CU_service.html">편의점 서비스 사용 메뉴얼</a></li>
+           </ul>
+    </nav>
+    <main id="main">
+
+      <section id="pagetitle">
+          <h2 class="font_main_pagetitle">편의점 음식 레시피</h2>
+      </section>
+
+      <section>
+        <ul id="storename">
+            <li><a class="current" href="/CU_recipe.html"><img src="image/CU.png"></img></a></li>
+            <li><a href="/GS_recipe.html"><img src="image/GS25.png"></img></a></li>
+        </ul>
+      </section>
+
+      <section id="pagename">
+              <h1 class="font_main_title">해당 음식 레시피 바로보기</h1>
+                <ul id="ser_select">
+                  <li><a href="#recipe1"><img class="tag_size" src="image/CU_recipe1.png"></img></a></li>
+                  <li><a href="#recipe2"><img class="tag_size" src="image/CU_recipe2.png"></img></a></li>
+                  <li><a href="#recipe3"><img class="tag_size" src="image/CU_recipe3.png"></img></a></li>
+                  <li><a href="#recipe4"><img class="tag_size" src="image/CU_recipe4.png"></img></a></li>
+                  <li><a href="#recipe5"><img class="tag_size" src="image/CU_recipe5.png"></img></a></li>
+                  <li><a href="#recipe6"><img class="tag_size" src="image/CU_recipe6.png"></img></a></li>
+                </ul>
+      </section>
+      <hr>
+      <section id="recipe">
+              <div class="page">
+                          <p class="font_title"><a name="recipe1"></a>● 카스도스</p>
+                          <img class="img_size", src="https://post-phinf.pstatic.net/MjAxNzExMTNfNzkg/MDAxNTEwNTQxODk2OTM3.HTTl8ZKkmvwZ_9m6qZBpTOInADzFwt-ezh5cBQvLZ9Ag.BswHgeJ2xS9HKwGLgdRwAgo2cvbcN8oN7GNjNEY54C8g.JPEG/%EC%B9%B4%EC%8A%A4%EB%8F%84%EC%8A%A4_%281%29.jpg?type=w1200" alt="recipe1"></img>
+                          <p class="font_list">
+                              1. 편의점 카스테라의 갈색부분을 잘라내고 손가락 크기로 잘라준다.<br>
+                              2. 계란을 체에 밭쳐 희자는 걸러내고 노른자만 분리한다.<br>
+                              3. 분리한 노른자는 체에 걸러 곱게 내려준다.<br>
+                              4. 준비한 카스테라 조각에 노른자를 흠뻑 묻힌 후, 살짝 건조한다.<br>
+                              5. 냄비에 물과 설탕르 1:1 비율로 넣고 끓여 시럽을 만든다.<br>
+                              6. 시럽이 완성되면 카스테라 조각을 넣고 굴려가며 표면을 코팅한다.<br>
+                              7. 김 식힌 카스테라는 슈가파우더를 뿌려 완성한다.<br>
+                          </p>
+                </div>
+      </section>
+      <section id="recipe">
+                <div class="page">
+                          <p class="font_title"><a name="recipe2"></a>● 벤쯔정식</p>
+                          <img class="img_size", src="https://post-phinf.pstatic.net/MjAxNzExMTNfOTkg/MDAxNTEwNTQxODgzNTMx.yObzkxaBk9zm2zfKbgENSotl_FVU_czqx6Ooi1nCdlIg.q1Rx8hmc25S-LigY-LCgC9oz2Kkm7Wp2XWpv7AXKf9gg.JPEG/20394263_475066942849857_1876381773223428096_n.jpg?type=w1200" alt="recipe2"></img>
+                          <p class="font_list">
+                            1. 편의점 피자를 전자레인지에 데운다.<br>
+                            2. 편의점 닭다리도 데운다.<br>
+                            3. 편의점 떡볶이는 조리예에 맞게 조리한다.<br>
+                            4. 데운 피자 위에 닭다리살을 찢어 올리고, 모짜렐라 치즈를 솔솔 뿌린다.<br>
+                            5. 그 위에 준비한 떡볶이를 올리고, 케첩을 뿌린다.<br>
+                            6. 다시 한번 전자레인지에 30초 정도 데운다.<br>
+                            7. 매콤 새콤한 닭다리 피자 완성!<br>
+                          </p>
+              </div>
+      </section>
+      <section id="recipe">
+              <div class="page">
+                          <p class="font_title"><a name="recipe3"></a>● 빵안에게티</p>
+                          <img class="img_size", src="https://post-phinf.pstatic.net/MjAxNzExMTZfMTYw/MDAxNTEwODE1MzU1ODI4.b4LUNWGKALiPMueBOPn7BB13WV_m5m-d6aqgpl9ivcAg.VRBCXnrV-EGbd0UHZuKcKidDKARo9RLbRb5aH_fKZtMg.JPEG/17438294_1701373063494888_6750677347852091392_n.jpg?type=w1200" alt="recipe3"></img>
+                          <p class="font_list">
+                            1. 여러 장의 식빵을 쌓고 가운데 부분을 작은 컵으로 눌러 구멍을 낸다.<br>
+                            2. 식빵 바닥 면에 버터를 발라 구워준다.<br>
+                            3. 구운 식빵 사이사이 치즈를 넣고 쌓아 빵 그릇을 만든다.<br>
+                            4. 만든 빵 그릇은 전자레인지에 돌린다.<br>
+                            5. 버터와 다진 마늘을 볶아 기본 양념을 만든다.<br>
+                            6. 만든 양념 위에 조리된 크림 스파게티와 양송이 수프를 넣는다.<br>
+                            7. 우유를 추가해 빠네 소스를 만든다.<br>
+                            8. 완성된 빵 그릇에 스파게티 면을 먼저 넣은 뒤 남은 소스를 부어준다.<br>
+                          </p>
+              </div>
+        </section>
+        <section id="recipe">
+              <div class="page">
+                          <p class="font_title"><a name="recipe4"></a>● 강다니엘 정식</p>
+                          <img class="img_size", src="https://post-phinf.pstatic.net/MjAxNzExMTNfNzAg/MDAxNTEwNTQxNzI4NDI3.qNyDtI3e57w4tl7NbJxcpKqavfviZqydq5PZsJ5jOyAg.vOdW6KsYACqYdwAq3mcGJ1RFRF1m4qi2hyJZQUhz4OUg.JPEG/22709115_813396065505484_653090175819186176_n.jpg?type=w1200" alt="recipe4"></img>
+                          <p class="font_list">
+                            1. 먼저 팔도 짜장 라면 1개와 불닭볶으면 1개는 준비한다.<br>
+                            2. 라면 용기에 면과 끓는 물을 넣고 면을 익힌다.<br>
+                            3. 면이 익으면 물기를 제거한다.<br>
+                            4. 익힌 면에 짜장 액상 수프와 불닭볶음면 수프를 붓는다.<br>
+                            5. 고춧가루 약간, 후추 약간 뿌려 버무리면 완성!<br>
+                          </p>
+              </div>
+          </section>
+          <section id="recipe">
+              <div class="page">
+                          <p class="font_title"><a name="recipe5"></a>● 불닭리조또</p>
+                          <img class="img_size", src="https://post-phinf.pstatic.net/MjAxNzExMTNfMTg5/MDAxNTEwNTQxOTEyODIw.XNH4qeKubukRUVWfszgzk7Rkg5yspsRfl-xiGPtcHZQg.KlAWGmKd6MtI3dQTvqppMM_G26eMPuTmaLMQNHp6w08g.JPEG/19379237_325376884543116_8683601124281810944_n.jpg?type=w1200" alt="recipe5"></img>
+                          <p class="font_list">
+                          1. 불닭볶음면을 준비한다. 이때 깨와 김가루는 남겨둔다.<br>
+                          3. 준비한 불닭볶음면에 햇반을 넣고 마구 섞는다.<br>
+                          4. 그 위에 스트링 치즈를 올리고 전자레인지에 1분간 데워준다.<br>
+                          5. 녹은 치즈위에 남겨둔 깨와 김가루를 뿌려 완성한다.<br>
+                          </p>
+              </div>
+          </section>
+          <section id="recipe">
+              <div class="page">
+                          <p class="font_title"><a name="recipe6"></a>● 삼각김밥전</p>
+                          <img class="img_size", src="https://post-phinf.pstatic.net/MjAxNzExMTZfMTc3/MDAxNTEwODE1Mzg3NTY0.h-_IH667caUiFhzeJbA6Zuob5Elza2V2eL4Lkv3WQmMg.0cMa-d20DMQvnICP5OjgJkRiPV-OFXtSD_FmjYefedog.JPEG/naver.com_05_08_14_35_50.jpg?type=w1200" alt="recipe5"></img>
+                          <p class="font_list">
+                        1. 원하는 삼각 김밥을 하나 준비한다.<br>
+                        2. 볼에 삼각김밥 1개와 달걀 1개를 풀어 골고루 섞어준다.<br>
+                        3. 달군 팬에 기름을 두르고, 준비한 반죽을 팬에 넓게 펴준다.<br>
+                        4. 앞뒤로 노릇노릇하게 구워주면 바삭한 삼각김밥전 완성!<br>
+                          </p>
+              </div>
+        </section>
+
+    </main>
+
+
+    <footer id="footer">
+      <p class="font_footer">
+  05006 서울특별시 광진구 능동로 209 (군자동) 세종대학교 TEL02-3408-3114 E-MAILwebmaster@sejong.ac.kr</p>
+
+    </footer>
+
+
+  </div>
+
+</body>
+</html>

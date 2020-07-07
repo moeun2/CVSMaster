@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>편의점 마스터</title>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  
+  
+  <!-- 헤더 -->
+  <style>
+    /* 모바일 - 767px 이하*/
+    header {
+      height: 125px;
+      background: #fff;
+      position: relative;
+    }
+
+    nav {
+      position: relative;
+      margin-left: 10%;
+      margin-right: 10%;
+      height: 30px;
+    }
+
+    main {
+      position: relative;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+      padding: 3px 3% 10px 5%;
+    }
+
+    footer {
+      position: relative;
+      background: #fff;
+      margin-left: 10%;
+      margin-right: 10%;
+      height: 80px;
+      clear: both;
+    }
+
+    li {
+      float: right;
+    }
+
+    li a {
+      display: block;
+      background-color: #fbceb1;
+      color: #000;
+      padding: 8px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    li a.current {
+      background-color: #FF6347;
+      color: white;
+    }
+
+    li a:hover:not(.current) {
+      background-color: #437299;
+      color: white;
+    }
+
+    .logo {
+      position: absolute;
+      width: 385px;
+      height: 112px;
+      left: 50%;
+      margin-left: -212px;
+      background: url('project_logo.png');
+      background-repeat: no-repeat;
+    }
+
+    #nav {
+      background-color: #fbceb1;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      height: 30px;
+      overflow: hidden;
+    }
+
+    #category {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      background: #fff;
+      width: 100%;
+      height: 130px;
+      float: left;
+      margin: 0;
+    }
+
+    #map {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      height: 500px;
+      float: left;
+      margin: 0;
+      border: 1px dotted #ccc;
+    }
+
+    /*MOBILE 카테고리 라벨 이미지*/
+    input[id="ATM"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('ATM00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="ATM"]:checked+label {
+      background: url('ATM11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="ATM"] {
+      display: none;
+    }
+
+    input[id="deliver"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('deliver00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="deliver"]:checked+label {
+      background: url('deliver11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="deliver"] {
+      display: none;
+    }
+
+    input[id="bakery"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('bakery00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="bakery"]:checked+label {
+      background: url('bakery11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="bakery"] {
+      display: none;
+    }
+
+    input[id="friedchicken"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('friedchicken00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="friedchicken"]:checked+label {
+      background: url('friedchicken11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="friedchicken"] {
+      display: none;
+    }
+
+    input[id="cafe"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('cafe00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="cafe"]:checked+label {
+      background: url('cafe11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="cafe"] {
+      display: none;
+    }
+
+    input[id="lotto"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('lotto00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="lotto"]:checked+label {
+      background: url('lotto11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="lotto"] {
+      display: none;
+    }
+
+    input[id="toto"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('toto00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="toto"]:checked+label {
+      background: url('toto11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="toto"] {
+      display: none;
+    }
+
+    input[id="medicine"]+label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('medicine00.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="medicine"]:checked+label {
+      background: url('medicine11.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="medicine"] {
+      display: none;
+    }
+
+
+    /* PC - 992px 이상 */
+    @media screen and (min-width:992px) {
+
+      #category {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 30%;
+        height: 500px;
+        float: left;
+        margin: 0;
+      }
+
+      #map {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 70%;
+        height: 500px;
+        float: left;
+        margin: 0;
+        border: 1px dotted #ccc;
+      }
+
+
+
+      /*PC카테고리 라벨 이미지*/
+      input[id="ATM"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('ATM0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="ATM"]:checked+label {
+        background: url('ATM1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="ATM"] {
+        display: none;
+      }
+
+      input[id="deliver"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('deliver0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="deliver"]:checked+label {
+        background: url('deliver1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="deliver"] {
+        display: none;
+      }
+
+      input[id="bakery"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('bakery0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="bakery"]:checked+label {
+        background: url('bakery1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="bakery"] {
+        display: none;
+      }
+
+      input[id="friedchicken"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('friedchicken0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="friedchicken"]:checked+label {
+        background: url('friedchicken1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="friedchicken"] {
+        display: none;
+      }
+
+      input[id="cafe"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('cafe0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="cafe"]:checked+label {
+        background: url('cafe1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="cafe"] {
+        display: none;
+      }
+
+      input[id="lotto"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('lotto0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="lotto"]:checked+label {
+        background: url('lotto1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="lotto"] {
+        display: none;
+      }
+
+      input[id="toto"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('toto0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="toto"]:checked+label {
+        background: url('toto1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="toto"] {
+        display: none;
+      }
+
+      input[id="medicine"]+label {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url('medicine0.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="medicine"]:checked+label {
+        background: url('medicine1.png');
+        background-repeat: no-repeat;
+      }
+
+      input[id="medicine"] {
+        display: none;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <script id="fetch"></script>
+  <div id="container">
+
+    <header id="header">
+      <a class="logo" href="/sample.html"></a>
+    </header>
+    <nav>
+      <ul id="nav">
+        <li><a href="/GS_recipe.html">편의점 음식 recipe</a></li>
+        <li><a href="/GS_service.html">편의점 서비스 사용 메뉴얼</a></li>
+      </ul>
+    </nav>
+    <main id="main">
+      <section id="category">
+        <div class="page-title">
+          <p>*원하시는 서비스를 선택하세요</p>
+        </div>
+        
+        <input type="checkbox" id="ATM" name="atm">
+        <label for="ATM" ></label>
+        <input type="checkbox" id="deliver" name="deliver">
+        <label for="deliver"></label>
+        <input type="checkbox" id="bakery">
+        <label for="bakery"></label>
+        <input type="checkbox" id="friedchicken">
+        <label for="friedchicken"></label>
+        <input type="checkbox" id="cafe">
+        <label for="cafe"></label>
+        <input type="checkbox" id="lotto">
+        <label for="lotto"></label>
+        <input type="checkbox" id="toto">
+        <label for="toto"></label>
+        <input type="checkbox" id="medicine">
+        <label for="medicine"></label>
+       
+      
+      
+      </section>
+
+      <section id="map">
+        <div class="page-title">
+          <p>search result</p>
+        </div>
+      </section>
+    </main>
+
+
+    <footer id="footer">
+
+      <p>(예시)BGF리테일 서울시 강남구 테헤란로 405(삼성동)
+        TEL: 1577-8007
+        COPYRIGHT © BGFretail ALL RIGHT RESERVED.</p>
+
+    </footer>
+
+
+  </div>
+  <script src="checkCategory.js">
+   
+  </script>
+</body>
+
+</html>
