@@ -1,0 +1,514 @@
+/* 모바일 - 767px 이하*/
+header {
+    height: 125px;
+    background: #fff;
+    position: relative;
+  }
+
+  nav {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 30px;
+  }
+
+  main {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  section {
+    position: relative;
+    width: 100%;
+    padding: 3px 3% 10px 5%;
+  }
+
+  footer {
+    position: relative;
+    background: #fbceb1;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 180px;
+    padding-left: 20px;
+    clear: both;
+  }
+
+  h2 {
+    color: #000;
+    width: 400px;
+    margin: 0 auto;
+    padding: 80px 3% 10px 5%;
+    text-align: center;
+  }
+
+  li {
+    float: right;
+  }
+
+  li a {
+    display: block;
+    background-color: #fbceb1;
+    color: #7831a3;
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  li a.current {
+    background-color: #FF6347;
+    color: white;
+  }
+
+  li a:hover:not(.current) {
+    background-color: #ffa063;
+    color: white;
+  }
+
+  .logo {
+    position: absolute;
+    width: 385px;
+    height: 112px;
+    left: 50%;
+    margin-left: -212px;
+    background: url('../image/project_logo.png');
+    background-repeat: no-repeat;
+  }
+
+  .font_ba {
+    font-size: 13px;
+    float: right;
+    font-family: 'Gothic A1', sans-serif;
+  }
+
+  .font_footer {
+    font-size: small;
+    float: left;
+  }
+
+  .font_sub {
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .font_main_pagetitle {
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+  #nav {
+    background-color: #fbceb1;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    overflow: hidden;
+  }
+
+  #category {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fff;
+    width: 100%;
+    height: 130px;
+    float: left;
+    margin: 0;
+  }
+
+  #map {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+    float: left;
+    margin: 0;
+    border: 1px dotted #ccc;
+  }
+
+  #pagetitle {
+    background-color: #fbceb1;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: url('/image/pagetitle.png');
+    background-repeat: repeat;
+    height: 200px;
+  }
+
+  #btnCurrentLoction {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    cursor: pointer;
+    background: url(../image/currentLocationButton.png);
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+  }
+
+  #currentLoc {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    float: left;
+    margin: 0;
+    border: 1px dotted #ccc;
+  }
+
+  #blank {
+    background-color: #fbceb1;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: url('https://us.123rf.com/450wm/kurita/kurita1507/kurita150700011/42167824-%ED%9D%B0-%EB%B0%94%ED%83%95.jpg?ver=6');
+    background-repeat: repeat;
+    height: 40px;
+  }
+
+  /*MOBILE 카테고리 라벨 이미지*/
+  input[id="ATM"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/ATM00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="ATM"]:checked+label {
+    background: url('../image/ATM11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="ATM"] {
+    display: none;
+  }
+
+  input[id="deliver"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/deliver00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="deliver"]:checked+label {
+    background: url('../image/deliver11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="deliver"] {
+    display: none;
+  }
+
+  input[id="bakery"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/bakery00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="bakery"]:checked+label {
+    background: url('../image/bakery11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="bakery"] {
+    display: none;
+  }
+
+  input[id="friedchicken"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/friedchicken00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="friedchicken"]:checked+label {
+    background: url('../image/friedchicken11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="friedchicken"] {
+    display: none;
+  }
+
+  input[id="cafe"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/cafe00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="cafe"]:checked+label {
+    background: url('../image/cafe11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="cafe"] {
+    display: none;
+  }
+
+  input[id="lotto"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/lotto00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="lotto"]:checked+label {
+    background: url('../image/lotto11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="lotto"] {
+    display: none;
+  }
+
+  input[id="toto"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/toto00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="toto"]:checked+label {
+    background: url('../image/toto11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="toto"] {
+    display: none;
+  }
+
+  input[id="medicine"]+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../image/medicine00.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="medicine"]:checked+label {
+    background: url('../image/medicine11.png');
+    background-repeat: no-repeat;
+  }
+
+  input[id="medicine"] {
+    display: none;
+  }
+
+
+  /* PC - 992px 이상 */
+  @media screen and (min-width:992px) {
+    footer {
+      position: relative;
+      background: #fbceb1;
+      margin-left: 10%;
+      margin-right: 10%;
+      height: 130px;
+      clear: both;
+    }
+
+    .font_ba {
+      font-size: 15px;
+    }
+
+    .font_footer {
+      font-size: small;
+      float: left;
+    }
+
+    #category {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 30%;
+      height: 900px;
+      float: left;
+      margin: 0;
+    }
+
+    #map {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 70%;
+      height: 850px;
+      float: left;
+      margin: 0;
+      border: 1px dotted #ccc;
+    }
+
+    #currentLocation {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: #fbceb1;
+      font-size: 20px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 70%;
+      height: 50px;
+      float: left;
+      margin: 0;
+      border: 1px dotted #ccc;
+    }
+
+
+    /*PC카테고리 라벨 이미지*/
+    input[id="ATM"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/ATM0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="ATM"]:checked+label {
+      background: url('../image/ATM1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="ATM"] {
+      display: none;
+    }
+
+    input[id="deliver"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/deliver0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="deliver"]:checked+label {
+      background: url('../image/deliver1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="deliver"] {
+      display: none;
+    }
+
+    input[id="bakery"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/bakery0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="bakery"]:checked+label {
+      background: url('../image/bakery1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="bakery"] {
+      display: none;
+    }
+
+    input[id="friedchicken"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/friedchicken0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="friedchicken"]:checked+label {
+      background: url('../image/friedchicken1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="friedchicken"] {
+      display: none;
+    }
+
+    input[id="cafe"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/cafe0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="cafe"]:checked+label {
+      background: url('../image/cafe1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="cafe"] {
+      display: none;
+    }
+
+    input[id="lotto"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/lotto0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="lotto"]:checked+label {
+      background: url('../image/lotto1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="lotto"] {
+      display: none;
+    }
+
+    input[id="toto"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/toto0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="toto"]:checked+label {
+      background: url('../image/toto1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="toto"] {
+      display: none;
+    }
+
+    input[id="medicine"]+label {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: url('../image/medicine0.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="medicine"]:checked+label {
+      background: url('../image/medicine1.png');
+      background-repeat: no-repeat;
+    }
+
+    input[id="medicine"] {
+      display: none;
+    }
+
+  }
